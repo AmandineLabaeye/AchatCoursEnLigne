@@ -36,8 +36,8 @@ panier.forEach(function(cours) {
 
         event.preventDefault();
         // Form elements
-        var title = "BOUTIQUE";
-        var message = "Votre article à bien été ajouté à votre panier !";
+        var title = "La boutique de jéjé";
+        var message = contenuPanier.textContent + " à bien été ajouté à votre panier !";
         var position = "codding-top-right";
         var duration = 3000;
         var theme = "success";
