@@ -34,8 +34,22 @@ panier.forEach(function(cours) {
 
         stockCours.innerText = Objet.stock - 1;
 
-        alert("Votre article à bien été ajouté à votre panier !")
+        event.preventDefault();
+        // Form elements
+        var title = "BOUTIQUE";
+        var message = "Votre article à bien été ajouté à votre panier !";
+        var position = "codding-top-right";
+        var duration = 3000;
+        var theme = "success";
 
+        window.createNotification({
+            positionClass: position,
+            showDuration: duration,
+            theme: theme
+        })({
+            title: title,
+            message: message
+        });
     })
 
 });
