@@ -1,74 +1,89 @@
-let cart = document.querySelectorAll(".add-to-cart");
+let panier = document.querySelectorAll(".add-to-cart");
 
-cart.forEach(function(item) {
+panier.forEach(function(cours) {
 
-    console.log(item)
+    console.log(cours)
 
-    item.addEventListener("click", function(event) {
+    cours.addEventListener("click", function(event) {
 
-        let parentCart = event.target.parentElement;
+        let idCours = cours.getAttribute("data-id");
 
-        let contentCart = parentCart.getElementsByTagName("h4")[0];
+        let parentPanier = event.target.parentElement;
 
-        let prixCours = parentCart.querySelector(".discount");
+        let contenuPanier = parentPanier.getElementsByTagName("h4")[0];
 
-        let stockCours = parentCart.querySelector(".stock")
+        let prixCours = parentPanier.querySelector(".discount");
+
+        let stockCours = parentPanier.querySelector(".stock")
 
         let Objet = {
-            nom: contentCart.textContent,
+            nom: contenuPanier.textContent,
             prix: prixCours.textContent,
-            quantite: 1,
+            quantite: 0,
             stock: stockCours.textContent
         }
 
-        console.log(Objet.nom)
-        console.log(Objet.prix)
-        console.log(Objet.quantite)
-        console.log(Objet.stock)
+        // Condition si dans le local storage l'élément en cours d'ajout exist déjà alors quantité + 1 au lieu de le dupliquer
 
-        let panier = document.querySelector("#cart-table tbody");
+        /*if (contenuPanier.innerText == Objet.nom) {
+            Objet.quantite++;
+        } else {*/
+        Objet.quantite++;
+        ajoutCoursPanier(Objet.nom, Objet.prix, Objet.quantite);
+        //}
 
-        let panierColonne = document.createElement("tr");
-
-        panier.appendChild(panierColonne);
-
-        let panierColDeb = document.createElement("td");
-
-        panierColonne.appendChild(panierColDeb);
-
-        let panierColUne = document.createElement("td");
-
-        panierColonne.appendChild(panierColUne);
-
-        panierColUne.innerText = Objet.nom;
-
-        let panierColDeux = document.createElement("td");
-
-        panierColonne.appendChild(panierColDeux);
-
-        panierColDeux.innerText = Objet.prix;
-
-        let panierColTrois = document.createElement("td");
-
-        panierColonne.appendChild(panierColTrois);
-
-        panierColTrois.innerText = Objet.quantite;
-
-        let panierColQuatre = document.createElement("td");
-
-        panierColonne.appendChild(panierColQuatre);
-
-        let boutonColQuatre = document.createElement("button");
-
-        panierColQuatre.appendChild(boutonColQuatre);
-
-        boutonColQuatre.classList.add("delete-to-cart")
-
-        boutonColQuatre.innerText = "Supprimer";
+        stockCours.innerText = Objet.stock - 1;
 
         alert("Votre article à bien été ajouté à votre panier !")
 
     })
 
-
 });
+
+function ajoutCoursPanier(nom, prix, quantite) {
+
+    let panierTable = document.querySelector("#cart-table tbody");
+
+    let panierColonne = document.createElement("tr");
+
+    panierTable.appendChild(panierColonne);
+
+    let panierColDeb = document.createElement("td");
+
+    panierColonne.appendChild(panierColDeb);
+
+    let panierColUne = document.createElement("td");
+
+    panierColonne.appendChild(panierColUne);
+
+    panierColUne.innerText = nom;
+
+    let panierColDeux = document.createElement("td");
+
+    panierColonne.appendChild(panierColDeux);
+
+    panierColDeux.innerText = prix;
+
+    let panierColTrois = document.createElement("td");
+
+    panierColonne.appendChild(panierColTrois);
+
+    panierColTrois.innerText = quantite;
+
+    let panierColQuatre = document.createElement("td");
+
+    panierColonne.appendChild(panierColQuatre);
+
+    let boutonColQuatre = document.createElement("button");
+
+    panierColQuatre.appendChild(boutonColQuatre);
+
+    boutonColQuatre.classList.add("delete-to-cart")
+
+    boutonColQuatre.innerText = "Supprimer";
+
+}
+
+function SuprrimerCoursPanier() {
+
+}
