@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Commander</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="container">
+            <class class="row">
+                <div class="four columns logo">
+                    <img src="img/coding_factory.jpg" id="logo">
+                </div>
+
+            </class>
+
+            <h1 class="formulaire">Formulaire de commande</h1>
+
+
+
+            <form class="formulaire2 padding">
+
+                <p class="centrer">Informations personnelles</p>
+
+                <b class="civilite">Civilité : </b><br />
+                <input type="radio" name="name" value="Mme" /> Madame
+                <input type="radio" name="name" value="Mr" checked="checked" /> Monsieur
+
+                <div class="prenom centrer alignement">
+                    <label class="padding" for="name">Prénom </label>
+                    <input type="text" id="name" size="30" placeholder="Albert" required>
+
+
+                    <label class="nomdeFamille" for="name">Nom de famille </label>
+                    <input type="text" id="name" size="30" placeholder="Germain" required>
+                </div>
+
+
+                <div class="alignement email">
+                    <label class="email" for="mail">E-Mail</label>
+                    <input type="email" id="email" size="30" placeholder="votrenom@gmail.com" required>
+
+                    <label class="telephone" for="mail">Téléphone</label>
+                    <input type="number" id="email" size="10" placeholder="07.12.12.12.12" required>
+
+                </div>
+                <div class="alignement">
+
+                    <label class="nomdeRue" for="mail">Numéro de rue</label>
+                    <input type="number" id="email" size="3" placeholder="9" required>
+                    <label class="adresse" for="mail">Adresse</label>
+                    <input type="text" id="text" size="30" placeholder="Rue de la Chenille" required>
+                </div>
+                <div class="alignement">
+                    <label class="codePostal" for="mail">Code postal</label>
+                    <input type="number" id="number" maxlength="5" placeholder="60716" required>
+
+                    <label class="ville" for="mail">Ville</label>
+                    <input type="text" id="text" size="30" placeholder="Pontoise" required>
+
+                </div>
+
+                <p class="centrer">Informations de paiement</p>
+
+                <div class="alignement">
+                    <label class="padding" for="mail">Numéro de carte bancaire</label>
+                    <input type="text" id="text" size="30" placeholder="6647 4473 2837 2837" required>
+                    <label class="padding" for="mail">Nom sur la carte</label>
+                    <input type="text" id="text" size="30" placeholder="Alain Dupré" required>
+                </div>
+
+                <div class="alignement cryptogramme">
+                    <label class="padding cryptogramme" for="mail">Cryptogramme</label>
+                    <input type="number" id="text" size="30" placeholder="000" required>
+                </div>
+
+                <div><button class="boutton">Soumettre le formulaire</button></div>
+            </form>
