@@ -26,7 +26,12 @@ panier.forEach(function(cours) {
         let Objet = getLocalStorage();
 
         // On push à chaque clique dans le local storage
-        Objet.push({ id: idCours, nom: contenuPanier.textContent, prix: prixCours.textContent, quantite: 1 })
+        Objet.push({
+            id: idCours,
+            nom: contenuPanier.textContent,
+            prix: prixCours.textContent,
+            quantite: 1
+        })
 
         // Cela créer l'html dans le panier
         ajoutCoursPanier(Objet[Objet.length - 1].nom, Objet[Objet.length - 1].prix, Objet[Objet.length - 1].quantite, Objet[Objet.length - 1].id);
@@ -136,7 +141,7 @@ document.getElementById("empty-cart").addEventListener("click", function(event) 
 
     // Une notification apparaît
     var titre = "La boutique de Tirna";
-    var message = "Votre panier est bien supprimer !";
+    var message = "Votre panier est bien supprimé !";
     var position = "codding-top-right";
     var duree = 3000;
     var theme = "success";

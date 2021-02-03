@@ -8,79 +8,96 @@
     <title>Commander</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/notifications.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 
 <body>
     <header id="header" class="header">
         <div class="container">
-            <class class="row">
+            <div class="row">
                 <div class="four columns logo">
                     <img src="img/coding_factory.jpg" id="logo">
                 </div>
 
-            </class>
+            </div>
+    </header>
 
-            <h1 class="formulaire">Formulaire de commande</h1>
-
-
-
-            <form class="formulaire2 padding">
-
-                <p class="centrer">Informations personnelles</p>
-
-                <b class="civilite">Civilité : </b><br />
-                <input type="radio" name="name" value="Mme" /> Madame
-                <input type="radio" name="name" value="Mr" checked="checked" /> Monsieur
-
-                <div class="prenom centrer alignement">
-                    <label class="padding" for="name">Prénom </label>
-                    <input type="text" id="name" size="30" placeholder="Albert" required>
+    <h1 class="formulaire">Formulaire de commande</h1>
 
 
-                    <label class="nomdeFamille" for="name">Nom de famille </label>
-                    <input type="text" id="name" size="30" placeholder="Germain" required>
-                </div>
+
+    <form class="formulaireBordure centrer ">
+
+        <p class="centrer">Informations personnelles</p>
+
+        <label class="civilite" for="civilite">Civilité :  </label>
+        <input type="radio" name="name" value="Mme" required/> Madame
+        <input type="radio" name="name" value="Mr" required/> Monsieur
+
+        <div class=" alignement">
+            <label class="padding" for="prenom">Prénom </label>
+            <input type="text" id="prenom" size="30" minlength="2" maxlength="20" placeholder="Albert" required>
 
 
-                <div class="alignement email">
-                    <label class="email" for="mail">E-Mail</label>
-                    <input type="email" id="email" size="30" placeholder="votrenom@gmail.com" required>
+            <label class="nomdeFamille" for="nomdeFamille">Nom de famille </label>
+            <input type="text" id="nom" size="30" minlength="2" maxlength="20" placeholder="Germain" required>
+        </div>
 
-                    <label class="telephone" for="mail">Téléphone</label>
-                    <input type="number" id="email" size="10" placeholder="07.12.12.12.12" required>
 
-                </div>
-                <div class="alignement">
+        <div class="alignement ">
+            <label class="email" for="mail">E-Mail</label>
+            <input type="email" id="email" size="30" placeholder="votrenom@gmail.com" required>
 
-                    <label class="nomdeRue" for="mail">Numéro de rue</label>
-                    <input type="number" id="email" size="3" placeholder="9" required>
-                    <label class="adresse" for="mail">Adresse</label>
-                    <input type="text" id="text" size="30" placeholder="Rue de la Chenille" required>
-                </div>
-                <div class="alignement">
-                    <label class="codePostal" for="mail">Code postal</label>
-                    <input type="number" id="number" maxlength="5" placeholder="60716" required>
+            <label class="telephone" for="telephone">Téléphone</label>
+            <input type="text" id="telephone" minlength="10" maxlength="10" placeholder="0712121212" required>
 
-                    <label class="ville" for="mail">Ville</label>
-                    <input type="text" id="text" size="30" placeholder="Pontoise" required>
+        </div>
+        <div class="alignement">
 
-                </div>
+            <label class="nomdeRue" for="numeroRue">Numéro de rue</label>
+            <input type="text" id="numeroRue" size="3" minlength="1" maxlength="5" placeholder="9" required>
+            <label class="adresse" for="adresse">Adresse</label>
+            <input type="text" id="adresse" size="30" minlength="5" maxlength="30" placeholder="Rue de la Chenille" required>
+        </div>
+        <div class="alignement">
+            <label class="codePostal" for="codePostal">Code postal</label>
+            <input type="text" id="codePostal" minlength="5" maxlength="5" placeholder="60716" required>
 
-                <p class="centrer">Informations de paiement</p>
+            <label class="ville" for="ville">Ville</label>
+            <input type="text" id="ville" size="30" minlength="2" maxlength="35" placeholder="Pontoise" required>
 
-                <div class="alignement">
-                    <label class="padding" for="mail">Numéro de carte bancaire</label>
-                    <input type="text" id="text" size="30" placeholder="6647 4473 2837 2837" required>
-                    <label class="padding" for="mail">Nom sur la carte</label>
-                    <input type="text" id="text" size="30" placeholder="Alain Dupré" required>
-                </div>
+        </div>
 
-                <div class="alignement cryptogramme">
-                    <label class="padding cryptogramme" for="mail">Cryptogramme</label>
-                    <input type="number" id="text" size="30" placeholder="000" required>
-                </div>
+        <p class="centrer">Informations de paiement</p>
 
-                <div><button class="boutton">Soumettre le formulaire</button></div>
-            </form>
+        <div class="alignement">
+            <label class="padding" for="carteBancaire">Numéro de carte bancaire</label>
+            <input type="text" id="carteBancaire" size="30" minlength="5" maxlength="20" placeholder="6647 4473 2837 2837" required>
+            <label class="padding" for="mail">Nom sur la carte</label>
+            <input type="text" id="nomCarte" size="30" minlength="2" maxlength="10" placeholder="Alain Dupré" required>
+        </div>
+
+        <div class="alignement ">
+            <label class="padding cryptogramme" for="cryptogramme">Cryptogramme</label>
+            <input type="text" id="cryptogramme" size="30" minlength="2" maxlength="4" placeholder="000" required>
+
+
+            <label class="padding cryptogramme" for="dateExpiration">Date d'expiration</label>
+            <input type="date" id="dateExpiration" size="30" required>
+        </div>
+
+
+        <button id="boutton" class="boutton">Soumettre le formulaire</button>
+    </form>
+
+    <script src="js/formulaire.js"></script>
+    <script src="js/notifications.js"></script>
+
+
+</body>
+
+</html>
