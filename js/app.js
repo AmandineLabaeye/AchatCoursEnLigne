@@ -46,7 +46,6 @@ panier.forEach(function(cours) {
             quantite: 1
         })
 
-        // A modifier
         ajoutCoursPanier(Objet[Objet.length - 1].nom, Objet[Objet.length - 1].prix, Objet[Objet.length - 1].quantite, Objet[Objet.length - 1].id);
 
         // Ca ajoute le tableau objet au local storage
@@ -69,7 +68,7 @@ function getLocalStorage() {
         return [];
     }
 
-    // Sinon on parse la chaîne de caractère en JSON pour pouvoir le parcourire et on le retourne
+    // Sinon on parse la chaîne de caractère en JSON pour pouvoir le parcourir et on le retourne
     let Json = JSON.parse(recupCoursPanier);
 
     return Json;
@@ -135,23 +134,23 @@ function ajoutCoursPanier(nom, prix, quantite, idCours) {
 
 }
 
-// récupère tout les class des boutons ajouter au panier
-let panierSupp = document.querySelectorAll(".delete-to-cart");
+// récupère le divParent dans lequel se trouve le bouton
+let panierContainer = document.getElementById("cart");
 
-// On boucle pour parcourir tous les boutons supprimer dans le panier
-panierSupp.forEach(function(cours) {
+// On fait un évenemnt de click dessus,
+panierContainer.addEventListener("click", function(event) {
 
-    // Lors du clic sur le bouton, tous ce code s'execute
-    cours.addEventListener("click", function() {
+    // On vérifie que l'élement selectionné dans cette div comporte bien la class "delete-to-cart",
+    if (event.target.className == "delete-to-cart") {
 
         // On récup le local storage dans le tableau
         let Objet = getLocalStorage();
 
         // On remonte au parent parent de l'élément
-        let panierTable = cours.parentElement.parentElement;
+        let panierTable = event.target.parentElement.parentElement;
 
         // On le supprimer grâce à l'id en cours
-        Objet.splice(Objet.id, 1)
+        Objet.splice(Objet.id, 1);
 
         // On vide l'html du panier
         panierTable.innerHTML = "";
@@ -159,9 +158,9 @@ panierSupp.forEach(function(cours) {
         // On actualise le local storage
         localStorage.setItem("panier", JSON.stringify(Objet));
 
-    });
+    }
 
-});
+})
 
 // Lors du clic sur le bouton vider le panier
 document.getElementById("empty-cart").addEventListener("click", function() {
