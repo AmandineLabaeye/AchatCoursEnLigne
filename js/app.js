@@ -1,3 +1,16 @@
+// On stock et on récupère le local storage
+let Objet = getLocalStorage();
+
+// Si la taille du tableu est différent de null alors on boucle sur les item, et on les affiche
+if (Objet.length != null) {
+    Objet.forEach(function(item) {
+
+        // Cela créer l'html dans le panier
+        ajoutCoursPanier(item.nom, item.prix, item.quantite, item.id);
+
+    });
+}
+
 // récupère tout les class des boutons ajouter au panier
 let panier = document.querySelectorAll(".add-to-cart");
 
@@ -33,7 +46,7 @@ panier.forEach(function(cours) {
             quantite: 1
         })
 
-        // Cela créer l'html dans le panier
+        // A modifier
         ajoutCoursPanier(Objet[Objet.length - 1].nom, Objet[Objet.length - 1].prix, Objet[Objet.length - 1].quantite, Objet[Objet.length - 1].id);
 
         // Ca ajoute le tableau objet au local storage
@@ -41,23 +54,6 @@ panier.forEach(function(cours) {
 
         //stockCours.innerText = stockCours.value - 1;
 
-        event.preventDefault();
-
-        // La notification
-        var titre = "La boutique de Tirna";
-        var message = contenuPanier.textContent + " à bien été ajouté à votre panier !";
-        var position = "codding-top-right";
-        var duree = 3000;
-        var theme = "success";
-
-        window.createNotification({
-            positionClass: position,
-            showDuration: duree,
-            theme: theme
-        })({
-            title: titre,
-            message: message
-        });
     })
 
 });
@@ -83,76 +79,100 @@ function getLocalStorage() {
 // Ajout et crée du tableau dans le panier pour chaque article
 function ajoutCoursPanier(nom, prix, quantite, idCours) {
 
+    // On récupère la div du panier
     let panierTable = document.querySelector("#cart-table tbody");
 
+    // On crée l'élément TR 
     let panierColonne = document.createElement("tr");
 
+    // On défini son parent
     panierTable.appendChild(panierColonne);
 
+    // On crée l'élément td qui sera vide
     let panierColDeb = document.createElement("td");
 
+    // On défini son parent
     panierColonne.appendChild(panierColDeb);
 
     let panierColUne = document.createElement("td");
 
     panierColonne.appendChild(panierColUne);
 
+    // On défini son contenu soit le paramètre nom
     panierColUne.innerText = nom;
 
     let panierColDeux = document.createElement("td");
 
     panierColonne.appendChild(panierColDeux);
 
+    // On défini son contenu soit le prix
     panierColDeux.innerText = prix;
 
     let panierColTrois = document.createElement("td");
 
     panierColonne.appendChild(panierColTrois);
 
+    // On défini son contenu soit quantite
     panierColTrois.innerText = quantite;
 
     let panierColQuatre = document.createElement("td");
 
     panierColonne.appendChild(panierColQuatre);
 
+    // On crée le bouton supprimer
     let boutonColQuatre = document.createElement("button");
 
     panierColQuatre.appendChild(boutonColQuatre);
 
+    // On lui ajoute une class
     boutonColQuatre.classList.add("delete-to-cart");
 
+    // On lui ajout un data-id avec le paramètre idCours
     boutonColQuatre.setAttribute("data-id", idCours);
 
+    // On lui défini son texte
     boutonColQuatre.innerText = "Supprimer";
-
-    console.log(panierTable.children)
-
-    console.log(panierTable.children.length)
 
 }
 
+// récupère tout les class des boutons ajouter au panier
+let panierSupp = document.querySelectorAll(".delete-to-cart");
+
+// On boucle pour parcourir tous les boutons supprimer dans le panier
+panierSupp.forEach(function(cours) {
+
+    // Lors du clic sur le bouton, tous ce code s'execute
+    cours.addEventListener("click", function() {
+
+        // On récup le local storage dans le tableau
+        let Objet = getLocalStorage();
+
+        // On remonte au parent parent de l'élément
+        let panierTable = cours.parentElement.parentElement;
+
+        // On le supprimer grâce à l'id en cours
+        Objet.splice(Objet.id, 1)
+
+        // On vide l'html du panier
+        panierTable.innerHTML = "";
+
+        // On actualise le local storage
+        localStorage.setItem("panier", JSON.stringify(Objet));
+
+    });
+
+});
+
 // Lors du clic sur le bouton vider le panier
-document.getElementById("empty-cart").addEventListener("click", function(event) {
+document.getElementById("empty-cart").addEventListener("click", function() {
+
+    // On selectionne le tbody du panier
+    let panierTable = document.querySelector("#cart-table tbody");
+
+    // Vide le html
+    panierTable.innerHTML = "";
 
     // Le local storage est clear
     localStorage.clear();
-
-    event.preventDefault();
-
-    // Une notification apparaît
-    var titre = "La boutique de Tirna";
-    var message = "Votre panier est bien supprimé !";
-    var position = "codding-top-right";
-    var duree = 3000;
-    var theme = "success";
-
-    window.createNotification({
-        positionClass: position,
-        showDuration: duree,
-        theme: theme
-    })({
-        title: titre,
-        message: message
-    });
 
 });
