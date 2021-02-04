@@ -34,45 +34,45 @@ header .logo img {
     width: 100%;
 }
 
-header .submenu {
+header .sous-menu {
     position: relative;
     list-style-type: none;
     width: 50%;
 }
 
-header .submenu #img-cart {
+header .sous-menu #img-cart {
     width: 25px;
     margin-top: 15px;
     cursor: pointer;
 }
 
 
-/** cart **/
+/** panier **/
 
-#cart {
+#panier {
     box-shadow: 0px 1px 5px 0px #adadad;
 }
 
-#cart table {
+#panier table {
     border-collapse: collapse;
 }
 
-#cart table thead tr {
+#panier table thead tr {
     background: #f4f4f4;
 }
 
-#cart table thead th {
+#panier table thead th {
     font-size: 11px;
     font-weight: 600;
     border: none;
 }
 
-#cart table tbody td img {
+#panier table tbody td img {
     width: auto;
     height: 40px;
 }
 
-#cart table tbody .supprimer-item {
+#panier table tbody .supprimer-item {
     display: block;
     background-color: #ff5454;
     border-radius: 50%;
@@ -87,11 +87,11 @@ header .submenu #img-cart {
     text-align: center;
 }
 
-header .submenu #cart {
+header .sous-menu #panier {
     display: none;
 }
 
-header .submenu:hover #cart {
+header .sous-menu:hover #panier {
     display: block;
     position: absolute;
     right: 0;
@@ -104,19 +104,19 @@ header .submenu:hover #cart {
     overflow-y: scroll;
 }
 
-header .submenu:hover #cart::-webkit-scrollbar {
+header .sous-menu:hover #panier::-webkit-scrollbar {
     width: 4px;
 }
 
-header .submenu:hover #cart::-webkit-scrollbar-track {
+header .sous-menu:hover #panier::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-header .submenu:hover #cart::-webkit-scrollbar-thumb {
+header .sous-menu:hover #panier::-webkit-scrollbar-thumb {
     background: #888;
 }
 
-header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
+header .sous-menu:hover #panier::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -125,7 +125,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
 * Search form
 */
 
-.search-form {
+.rechercher-formulaire {
     display: flex;
     max-width: 700px;
     width: 70%;
@@ -135,7 +135,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     display: flex;
 }
 
-.search-form input {
+.rechercher-formulaire input {
     width: 100%;
     padding: 15px;
     border: none;
@@ -144,7 +144,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     font-size: 14px;
 }
 
-#no_course {
+#pas_cours {
     text-align: center;
     padding: 25px;
 }
@@ -154,7 +154,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
 * Courses list
 */
 
-#courses-list h1 {
+#liste-cours h1 {
     text-align: left;
     width: fit-content;
     margin: 0 auto 25px auto;
@@ -165,7 +165,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     color: #383838;
 }
 
-#courses-list h1:after {
+#liste-cours h1:after {
     content: "";
     display: block;
     height: 15px;
@@ -181,7 +181,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     margin-bottom: 30px;
 }
 
-.courses__container {
+.container__cours {
     margin-top: 30px;
     display: grid;
     grid-gap: 25px;
@@ -190,7 +190,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     padding: 0 10px;
 }
 
-.course__item {
+.cours__article {
     border: 1px solid rgba(0, 0, 0, 0.25);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     display: flex;
@@ -198,7 +198,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     padding: 0 0 10px 0;
 }
 
-.course__item .course_img {
+.cours__article .cours_img {
     height: 120px;
     overflow: hidden;
     display: flex;
@@ -206,63 +206,63 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     align-items: center;
 }
 
-.course__item .course_img img {
+.cours__article .cours_img img {
     width: 100%;
 }
 
-.course__item .mark {
+.cours__article .note {
     width: 70px;
     height: 15px;
     overflow: hidden;
 }
 
-.course__item .mark img {
+.cours__article .note img {
     width: 100%;
 }
 
-.course__item .mark.m_5 img {
+.cours__article .note.m_5 img {
     margin-top: 0px;
 }
 
-.course__item .mark.m_4 img {
+.cours__article .note.m_4 img {
     margin-top: -15px;
 }
 
-.course__item .mark.m_3 img {
+.cours__article .note.m_3 img {
     margin-top: -30px;
 }
 
-.course__item .mark.m_2 img {
+.cours__article .note.m_2 img {
     margin-top: -45px;
 }
 
-.course__item .mark.m_1 img {
+.cours__article .note.m_1 img {
     margin-top: -60px;
 }
 
-.course__item .info__card {
+.cours__article .info__article {
     padding: 10px 10px;
     position: relative;
 }
 
-.course__item .info__card h4 {
+.cours__article .info__article h4 {
     font-size: 16px;
     font-weight: 700;
 }
 
-.course__item .price {
+.cours__article .prix {
     text-decoration: line-through;
     color: red;
 }
 
-.course__item .discount {
+.cours__article .soldes {
     color: black;
     font-weight: bold;
     float: right;
     font-size: 1.25em;
 }
 
-.course__item .add-to-cart {
+.cours__article .ajouter-au-panier {
     background: #00B2BD;
     padding: 5px 10px;
     border-radius: 6px;
@@ -274,7 +274,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
     bottom: 0;
 }
 
-.course__item .add-to-cart:hover {
+.cours__article .ajouter-au-panier:hover {
     background: #00828a;
     color: white;
 }
@@ -291,19 +291,19 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
 }
 
 @media (min-width: 472px) and (max-width: 767px) {
-    .courses__container {
+    .container__cours {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media all and (min-width: 768px) {
-    .courses__container {
+    .container__cours {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media all and (min-width: 949px) {
-    .courses__container {
+    .container__cours {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }

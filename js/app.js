@@ -1,18 +1,20 @@
 // On stock et on récupère le local storage
 let Objet = getLocalStorage();
 
-// Si la taille du tableu est différent de null alors on boucle sur les item, et on les affiche
+console.log(Objet)
+
+// Si la taille du tableu est différent de null alors on boucle sur les article, et on les affiche
 if (Objet.length != null) {
-    Objet.forEach(function(item) {
+    Objet.forEach(function(article) {
 
         // Cela créer l'html dans le panier
-        ajoutCoursPanier(item.nom, item.prix, item.quantite, item.id);
+        ajoutCoursPanier(article.nom, article.prix, article.quantite, article.id);
 
     });
 }
 
 // récupère tout les class des boutons ajouter au panier
-let panier = document.querySelectorAll(".add-to-cart");
+let panier = document.querySelectorAll(".ajouter-au-panier");
 
 // On boucle pour parcourir tous les boutons
 panier.forEach(function(cours) {
@@ -30,7 +32,7 @@ panier.forEach(function(cours) {
         let contenuPanier = parentPanier.getElementsByTagName("h4")[0];
 
         // On récupére le prix en solde
-        let prixCours = parentPanier.querySelector(".discount");
+        let prixCours = parentPanier.querySelector(".soldes");
 
         // On récupérer le solde
         let stockCours = parentPanier.querySelector(".stock")
@@ -79,7 +81,7 @@ function getLocalStorage() {
 function ajoutCoursPanier(nom, prix, quantite, idCours) {
 
     // On récupère la div du panier
-    let panierTable = document.querySelector("#cart-table tbody");
+    let panierTable = document.querySelector("#table-panier tbody");
 
     // On crée l'élément TR 
     let panierColonne = document.createElement("tr");
@@ -124,7 +126,7 @@ function ajoutCoursPanier(nom, prix, quantite, idCours) {
     panierColQuatre.appendChild(boutonColQuatre);
 
     // On lui ajoute une class
-    boutonColQuatre.classList.add("delete-to-cart");
+    boutonColQuatre.classList.add("supprimer-du-panier");
 
     // On lui ajout un data-id avec le paramètre idCours
     boutonColQuatre.setAttribute("data-id", idCours);
@@ -135,13 +137,13 @@ function ajoutCoursPanier(nom, prix, quantite, idCours) {
 }
 
 // récupère le divParent dans lequel se trouve le bouton
-let panierContainer = document.getElementById("cart");
+let panierContainer = document.getElementById("panier");
 
 // On fait un évenemnt de click dessus,
 panierContainer.addEventListener("click", function(event) {
 
-    // On vérifie que l'élement selectionné dans cette div comporte bien la class "delete-to-cart",
-    if (event.target.className == "delete-to-cart") {
+    // On vérifie que l'élement selectionné dans cette div comporte bien la class "supprimer-du-panier",
+    if (event.target.className == "supprimer-du-panier") {
 
         // On récup le local storage dans le tableau
         let Objet = getLocalStorage();
@@ -163,15 +165,15 @@ panierContainer.addEventListener("click", function(event) {
 })
 
 // Lors du clic sur le bouton vider le panier
-document.getElementById("empty-cart").addEventListener("click", function() {
+document.getElementById("vider-panier").addEventListener("click", function() {
 
     // On selectionne le tbody du panier
-    let panierTable = document.querySelector("#cart-table tbody");
+    let panierTable = document.querySelector("#table-panier tbody");
 
     // Vide le html
     panierTable.innerHTML = "";
 
     // Le local storage est clear
-    localStorage.clear();
+    localStorage.removeItem("panier");
 
 });
