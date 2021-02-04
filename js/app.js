@@ -64,8 +64,15 @@ panier.forEach(function(cours) {
             // Actualise le local storage
             localStorage.setItem("cours", JSON.stringify(stockCours));
 
+            let px = 0;
+
+            Notif(contenuPanier.textContent + " a été ajouté au panier !", 3000, px);
+
         } else {
-            confirm('stock vide');
+
+            let px = 0;
+
+            Notif("Le stock est vide", 3000, px);
         }
     })
 });
@@ -181,6 +188,7 @@ panierContainer.addEventListener("click", function(event) {
             // On vide l'html du panier
             panierTable.innerHTML = '';
 
+
             // On récupérer le stock
             let stockCours = recupererLeStorageCours();
 
@@ -190,37 +198,48 @@ panierContainer.addEventListener("click", function(event) {
 
             affichage(stockCours);
 
+
             // On actualise le stock
             localStorage.setItem("cours", JSON.stringify(stockCours));
 
             // On actualise le local storage
             localStorage.setItem("panier", JSON.stringify(Objet));
 
+            let px = 0;
+
+            Notif(nom + " à bien été supprimé du panier !", 3000, px);
+
         }
     }
 
 })
 
-// Lors du clic sur le bouton vider le panier
-document.getElementById("vider-panier").addEventListener("click", function() {
+document.getElementById("panier").addEventListener("click", function(event) {
 
-    // Ouvre une boite de dialogue qui demande, si elle clique sur OK
-    if (confirm("Voulez vous vraiment vider votre panier ?")) {
+    // Lors du clic sur le bouton vider le panier
+    if (event.target.getAttribute("id") == "vider-panier") {
 
-        // On selectionne le tbody du panier
-        let panierTable = document.querySelector("#table-panier tbody");
+        // Ouvre une boite de dialogue qui demande, si elle clique sur OK
+        if (confirm("Voulez vous vraiment vider votre panier ?")) {
 
-        // Vide le html
-        panierTable.innerHTML = "";
+            // On selectionne le tbody du panier
+            let panierTable = document.querySelector("#table-panier tbody");
 
-        // Le local storage est clear
-        localStorage.clear();
+            // Vide le html
+            panierTable.innerHTML = "";
 
-        document.querySelector("body .container__cours").innerHTML = '';
+            // Le local storage est clear
+            localStorage.clear();
 
-        affichage(COURS);
+            document.querySelector("body .container__cours").innerHTML = '';
 
-        alert("N'hésitez pas à remplir votre panier, si les cours vous plaisent ;) !")
+            affichage(COURS);
+
+            let px = 0;
+
+            Notif("N'hésitez pas à remplir votre panier, si les cours vous plaisent ;) !", 3000, px);
+
+        }
 
     }
 
