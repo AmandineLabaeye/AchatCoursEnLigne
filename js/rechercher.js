@@ -13,13 +13,11 @@ champ.addEventListener("keyup", function(event) {
     // On créé une variable qui séléctionne tous les h4 du document
     let h4 = document.querySelectorAll("h4");
     // On affiche tous les éléments qui ont comme tag "h4" ( ici nos titres)
-    console.log(h4);
 
     h4.forEach(function(element) {
         // On récupérer le parent du parent de l'élément
         let divParent = element.parentElement.parentElement;
-        console.log(valeurChamp);
-        console.log(element.textContent);
+
         // On vérifie que la valeur du champ est égale à 2 pour commencer les recherches
         if (valeurChamp.length >= 2) {
             // On créé une condition dans laquelle on dit que si valeurChamp n'est pas égal à ce que l'utilisateur entre alors
@@ -28,7 +26,6 @@ champ.addEventListener("keyup", function(event) {
                 divParent.classList.add("hidden");
             } else {
                 //Sinon on affiche 
-                console.log("Il y a bien l'article " + valeurChamp);
                 textElement.innerText = "Il y a bien l'article " + '"' + valeurChamp + '"';
                 // Et on affiche les éléments
                 divParent.classList.remove("hidden");
@@ -46,7 +43,6 @@ champ.addEventListener("keyup", function(event) {
 
     if (!trouve) {
         // Si rien est trouvé dans la saisie de l'utilisateur on affiche 
-        console.log('"' + valeurChamp + '"' + " ne correspond à aucun article");
         textElement.innerText = " ";
         textElement.innerText = '"' + valeurChamp + '"' + " ne correspond à aucun article";
     }
