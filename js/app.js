@@ -184,10 +184,10 @@ panierContainer.addEventListener("click", function(event) {
             // On récupérer le stock
             let stockCours = recupererLeStorageCours();
 
-            stockCours[idCours - 1].stock = stockCours[idCours - 1].stock++;
+            stockCours[idCours - 1].stock = stockCours[idCours - 1].stock + 1;
 
-            // document.querySelector(".stock").innerText = stockCours[idCours - 1].stock;
             document.querySelector("body .container__cours").innerHTML = '';
+
             affichage(stockCours);
 
             // On actualise le stock
@@ -214,7 +214,11 @@ document.getElementById("vider-panier").addEventListener("click", function() {
         panierTable.innerHTML = "";
 
         // Le local storage est clear
-        localStorage.clear;
+        localStorage.clear();
+
+        document.querySelector("body .container__cours").innerHTML = '';
+
+        affichage(COURS);
 
         alert("N'hésitez pas à remplir votre panier, si les cours vous plaisent ;) !")
 
