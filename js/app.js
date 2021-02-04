@@ -112,6 +112,10 @@ function creationCarteCours(img, titre, note, prix_initial, prix, stock, id) {
 
     spanAjouter_au_panier.innerText = "Ajouter au panier";
 
+    ajouter_au_panierA.classList.add("a");
+    
+    spanAjouter_au_panier.classList.add("a");
+
     ajouter_au_panierA.appendChild(spanAjouter_au_panier);
 
 }
