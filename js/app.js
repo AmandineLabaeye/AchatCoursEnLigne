@@ -11,13 +11,15 @@ if (Objet.length != null) {
     });
 }
 
+let check = false;
+let px;
+
 // récupère tout les class des boutons ajouter au panier
 let panier = document.querySelectorAll(".ajouter-au-panier");
 
 // On boucle pour parcourir tous les boutons
 panier.forEach(function(cours) {
-    let check = false;
-    let px;
+
     // Lors du clic sur le bouton, tous ce code s'execute
     cours.addEventListener("click", function(event) {
 
@@ -65,18 +67,7 @@ panier.forEach(function(cours) {
             // Actualise le local storage
             localStorage.setItem("cours", JSON.stringify(stockCours));
 
-<<<<<<< refs/remotes/origin/master
-            let px = 0;
-
-            Notif(contenuPanier.textContent + " a été ajouté au panier !", 3000, px);
-
-        } else {
-
-            let px = 0;
-
-            Notif("Le stock est vide", 3000, px);
-=======
-            if(check) {
+            if (check) {
                 px = px + 12;
                 Notif(contenuPanier.textContent + " a été ajouté au panier !", 3000, px);
             } else {
@@ -86,8 +77,8 @@ panier.forEach(function(cours) {
             }
 
         } else {
-            
-            if(check) {
+
+            if (check) {
                 px = px + 12;
                 Notif("Le stock est vide", 3000, px);
             } else {
@@ -95,7 +86,7 @@ panier.forEach(function(cours) {
                 check = true;
                 Notif("Le stock est vide", 3000, px);
             }
->>>>>>> Finition Notification #0.3
+
         }
     })
 });
@@ -182,8 +173,7 @@ let panierContainer = document.getElementById("panier");
 
 // On fait un évenemnt de click dessus,
 panierContainer.addEventListener("click", function(event) {
-    let check = false;
-    let px;
+
     // On vérifie que l'élement selectionné dans cette div comporte bien la class "supprimer-du-panier",
     if (event.target.className == "supprimer-du-panier") {
 
@@ -192,7 +182,6 @@ panierContainer.addEventListener("click", function(event) {
 
         // récupère le nom de l'article
         let nom = panierTable.getElementsByTagName("td")[1].textContent;
-<<<<<<< refs/remotes/origin/master
 
         // Ouvre une boite de dialogue qui demande, si elle clique sur OK
         if (confirm("Êtes vous sur de vouloir supprimer le cours " + nom + " ?")) {
@@ -202,17 +191,7 @@ panierContainer.addEventListener("click", function(event) {
 
             let idCours = event.target.getAttribute("data-id");
 
-=======
 
-        // Ouvre une boite de dialogue qui demande, si elle clique sur OK
-        if (confirm("Êtes vous sur de vouloir supprimer le cours " + nom + " ?")) {
-
-            // On récup le local storage dans le tableau
-            let Objet = recupererLeStorage();
-
-            let idCours = event.target.getAttribute("data-id");
-
->>>>>>> Finition Notification #0.3
             // On le supprimer grâce à l'id en cours grâce à la boucle
             for (let i = 0; i < Objet.length; i++) {
                 if (Objet[i].id === idCours) {
@@ -241,12 +220,7 @@ panierContainer.addEventListener("click", function(event) {
             // On actualise le local storage
             localStorage.setItem("panier", JSON.stringify(Objet));
 
-<<<<<<< refs/remotes/origin/master
-            let px = 0;
-
-            Notif(nom + " à bien été supprimé du panier !", 3000, px);
-=======
-            if(check) {
+            if (check) {
                 px = px + 12;
                 Notif(nom + " à bien été supprimé du panier !", 3000, px);
 
@@ -256,7 +230,6 @@ panierContainer.addEventListener("click", function(event) {
                 Notif(nom + " à bien été supprimé du panier !", 3000, px);
 
             }
->>>>>>> Finition Notification #0.3
 
         }
     }
@@ -279,22 +252,12 @@ document.getElementById("panier").addEventListener("click", function(event) {
 
             // Le local storage est clear
             localStorage.clear();
-<<<<<<< refs/remotes/origin/master
 
             document.querySelector("body .container__cours").innerHTML = '';
 
             affichage(COURS);
 
-            let px = 0;
-
-            Notif("N'hésitez pas à remplir votre panier, si les cours vous plaisent ;) !", 3000, px);
-=======
-
-            document.querySelector("body .container__cours").innerHTML = '';
-
-            affichage(COURS);
-
-            if(check) {
+            if (check) {
                 px = px + 12;
                 Notif("N'hésitez pas à remplir votre panier, si les cours vous plaisent ;) !", 3000, px);
 
@@ -305,7 +268,6 @@ document.getElementById("panier").addEventListener("click", function(event) {
 
             }
 
->>>>>>> Finition Notification #0.3
 
         }
 
